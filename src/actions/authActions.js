@@ -17,6 +17,7 @@ export function signUpUser(email, password, passwordConfirmation ) {
         let user = response.data.user
         dispatch({ type: AUTH_USER, payload: user })
         localStorage.setItem('token', response.data.token)
+        localStorage.setItem('user', response.data.user)
       })
       .catch(({response}) => {
         dispatch(authError(response.data.error))
@@ -32,6 +33,7 @@ export function signInUser(email, password) {
       .then(response => {
         // -Save the JWT token
         localStorage.setItem('token', response.data.token)
+        localStorage.setItem('user', response.data.user)
         let user = response.data.user
 
         // -if request is good, we need to update state to indicate user is authenticated

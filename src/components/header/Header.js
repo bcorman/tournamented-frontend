@@ -10,13 +10,13 @@ class Header extends Component {
     if (this.props.authenticated) {
       return (
         <Menu size={'large'}>
-          <h1 id='header-school-name'>
+          <h1 id='site-title'>
             Tournamented
           </h1>
 
           <Menu.Menu position='right'>
             <Menu.Item>
-              <small>Welcome {this.props.user}</small>
+              <small>Welcome {this.props.user.email}</small>
             </Menu.Item>
             <Menu.Item>
               <SignOutModal />
@@ -28,7 +28,7 @@ class Header extends Component {
       return (
         <Menu size={'large'}>
 
-          <h1 id='header-school-name'>
+          <h1 id='site-title'>
             Tournamented
           </h1>
 
@@ -54,4 +54,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default Header
+export default connect(mapStateToProps)(Header)
