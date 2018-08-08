@@ -1,0 +1,19 @@
+
+.landing-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.landing-page h3 {
+  padding: 0.5rem;
+}
+.landing-page img {
+  padding: 0.5rem;
+  border: 1px solid green;
+  max-height: 200px;
+  height: 8rem;
+  width: 20%;
+}
