@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import SignInModal from '../modals/SignInModal'
 import SignOutModal from '../modals/SignOutModal'
 import SignUpModal from '../modals/SignUpModal'
+import './Header.css'
 
 class Header extends Component {
   render() {
@@ -11,7 +12,7 @@ class Header extends Component {
       return (
         <Menu size={'large'}>
           <h1 id='site-title'>
-            Tournamented
+            Debate Club
           </h1>
 
           <Menu.Menu position='right'>

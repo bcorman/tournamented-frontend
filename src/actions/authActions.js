@@ -17,7 +17,7 @@ export function signUpUser(email, password, passwordConfirmation ) {
         let user = response.data.user
         dispatch({ type: AUTH_USER, payload: user })
         localStorage.setItem('token', response.data.token)
-        localStorage.setItem('user', response.data.user)
+        localStorage.setItem('user', JSON.stringify(user))
       })
       .catch(({response}) => {
         dispatch(authError(response.data.error))

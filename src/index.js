@@ -5,6 +5,7 @@ import { BrowserRouter as Router } from 'react-router-dom'
 import configureStore from './configureStore'
 import App from './App';
 import 'semantic-ui-css/semantic.min.css';
+import './index.css';
 import { AUTH_USER } from './actions/types'
 
 const store = configureStore();
