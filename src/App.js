@@ -14,7 +14,7 @@ class App extends Component {
             <LandingPage />
           </div>
         </div>
-      );
+      )
     } else {
       return (
         <div className="App">
