@@ -42,19 +42,16 @@ class InitForm extends Component {
         return (<Form>
             <Form.Field>
                 <label>Tournament Name</label>
-                <input name='tournamentName' placeholder='Tournament Name' onChange={this.handleChange}/>
+                <input name='tournamentName' onChange={this.handleChange}/>
             </Form.Field>
             <Form.Field>
                 <label>Tournament Date</label>
-                <input name='tournamentDate' placeholder='Tournament Date' onChange={this.handleChange}/>
+                <input type='date' name='tournamentDate' onChange={this.handleChange}/>
             </Form.Field>
-            <Form.Field>
-                <label>Number of Rounds</label>
-                <input name='tournamentLength' placeholder='fix this when you have internet' onChange={this.handleChange}/>
-            </Form.Field>
+            <Form.Select label='Rounds' options={rounds} />
             <Form.Field>
                 <label>Tournament Location</label>
-                <input name='tournamentLocation' placeholder='Tournament Location' onChange={this.handleChange}/>
+                <input name='tournamentLocation' onChange={this.handleChange}/>
             </Form.Field>
             <Button as={Link} to='/setup/schools' type='submit' onClick={this.handleSubmit}>Submit</Button>
         </Form>)
