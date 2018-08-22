@@ -1,19 +1,19 @@
-import React, {Component} from 'react'
-import { Form, Button, Dropdown, Menu } from 'semantic-ui-react'
-import { Link } from 'react-router-dom'
+import React, {Component} from 'react';
+import { Form, Button, Dropdown, Menu } from 'semantic-ui-react';
+import { Link } from 'react-router-dom';
 
 class InitForm extends Component {
-    state = {}
+    state = {};
 
     handleChange = (e) => {
         this.setState({
             [e.target.name]: e.target.value
-        })
-    }
+        });
+    };
 
     handleSubmit = (e) => {
-        console.log(this.state)
-    }
+        console.log(this.state);
+    };
 
     render() {
         const rounds = [
@@ -38,24 +38,26 @@ class InitForm extends Component {
                 text: '5',
                 value: 5
             }
-        ]
-        return (<Form>
-            <Form.Field>
-                <label>Tournament Name</label>
-                <input name='tournamentName' onChange={this.handleChange}/>
-            </Form.Field>
-            <Form.Field>
-                <label>Tournament Date</label>
-                <input type='date' name='tournamentDate' onChange={this.handleChange}/>
-            </Form.Field>
-            <Form.Select label='Rounds' options={rounds} />
-            <Form.Field>
-                <label>Tournament Location</label>
-                <input name='tournamentLocation' onChange={this.handleChange}/>
-            </Form.Field>
-            <Button as={Link} to='/setup/schools' type='submit' onClick={this.handleSubmit}>Submit</Button>
-        </Form>)
-    }
-}
+        ];
+        return (
+            <Form>
+                <Form.Field>
+                    <label>Tournament Name</label>
+                    <input name='tournamentName' onChange={this.handleChange}/>
+                </Form.Field>
+                <Form.Field>
+                    <label>Tournament Date</label>
+                    <input type='date' name='tournamentDate' onChange={this.handleChange}/>
+                </Form.Field>
+                <Form.Select label='Rounds' options={rounds} />
+                <Form.Field>
+                    <label>Tournament Location</label>
+                    <input name='tournamentLocation' onChange={this.handleChange}/>
+                </Form.Field>
+                <Button as={Link} to='/setup/schools' type='submit' onClick={this.handleSubmit}>Submit</Button>
+            </Form>
+        );
+    };
+};
 
 export default InitForm;

@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
-import {connect} from 'react-redux'
-import {Route, Redirect, withRouter} from 'react-router-dom'
-import {PrivateRoute} from './components/PrivateRoute'
-import Header from './components/header/Header'
-import LandingPage from './pages/LandingPage'
-import MainContainer from './containers/MainContainer'
+import {connect} from 'react-redux';
+import {Route, Redirect, withRouter} from 'react-router-dom';
+import {PrivateRoute} from './components/PrivateRoute';
+import Header from './components/header/Header';
+import LandingPage from './pages/LandingPage';
+import MainContainer from './containers/MainContainer';
 
 class App extends Component {
     render() {
@@ -16,12 +16,12 @@ class App extends Component {
                   <PrivateRoute path="/setup" component={MainContainer}/>
               </div>
           </div>
-        )
-    }
-}
+        );
+    };
+};
 
 const mapStateToProps = (state) => {
-    return {authenticated: state.auth.authenticated}
-}
+    return {authenticated: state.auth.authenticated};
+};
 
 export default withRouter(connect(mapStateToProps)(App));

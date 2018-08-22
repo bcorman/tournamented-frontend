@@ -1,16 +1,33 @@
-import React, { Component } from 'react'
-import SchoolsForm from '../components/forms/SchoolsForm'
+import React, { Component } from 'react';
+import SchoolsForm from '../components/forms/SchoolsForm';
 
 class SchoolsPage extends Component {
-  render() {
-    return (
-      <div>
-        <h3>Schools</h3>
-        <p>Add or view participating schools below.</p>
-        <SchoolsForm />
-      </div>
-    )
-  }
-}
+    constructor(props) {
+        super(props);
+        this.state = { schools: [] };
 
-export default SchoolsPage
+        this.addSchool = this.addSchool.bind(this);
+    };
+
+    addSchool = (school) => {
+        this.state.schools.push(school);
+    };
+
+    render() {
+
+        let schools = this.state.schools.map((school, index) => {
+            return <span key={index}><h3>{school}</h3></span>;
+        });
+
+        return (
+            <div>
+                <h3>Schools</h3>
+                <p>Add or view participating schools below.</p>
+                {schools}
+                <SchoolsForm addSchool={this.addSchool}/>
+            </div>
+        );
+    };
+};
+
+export default SchoolsPage;
