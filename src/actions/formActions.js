@@ -3,11 +3,17 @@ import { ROOT_URL } from '../config';
 import axios from 'axios';
 
 export function addSchool (newSchool) {
-  return {
-    type: ADD_SCHOOL,
-    school: {
-      name: newSchool
-    }
+  const school = {
+    name: newSchool
+  }
+  return function (dispatch) {
+    axios.post(`${ROOT_URL}/setup/school/create`, school)
+      .then(function (response) {
+        dispatch({ type: ADD_SCHOOL, school });
+      })
+      .catch(function(error) {
+        throw(error);
+      })
   }
 }
 
