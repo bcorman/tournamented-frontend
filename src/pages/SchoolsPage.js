@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import SchoolsForm from '../components/forms/SchoolsForm';
-import { Link } from 'semantic-ui-react'
+import { Button } from 'semantic-ui-react'
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom'
 import { addSchool } from '../actions/formActions';
 
 class SchoolsPage extends Component {
@@ -13,7 +14,7 @@ class SchoolsPage extends Component {
     render() {
 
         let schools = this.props.schools.map((school, index) => {
-                    return <span key={index}><h3>{school.name}</h3></span>;
+                    return <Button as={Link} to={`/setup/schools/${school.name}`} key={index}>{school.name}</Button>;
         })
 
         return (
