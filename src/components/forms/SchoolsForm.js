@@ -6,24 +6,23 @@ class SchoolsForm extends Component {
         super(props);
         this.state = {
             schoolName: ''
-        };
+        }
 
         this.handleChange = this.handleChange.bind(this);
-  };
+  }
 
     handleChange = (e) => {
         this.setState({
             [e.target.name]: e.target.value
-        });
-    };
+        })
+    }
 
     newSchool = (e) => {
         if (this.state.schoolName.length > 0 ) {
-            console.log('newSchool hit')
             this.props.addSchool(this.state.schoolName);
             this.setState({schoolName: ''});
-        };
-    };
+        }
+    }
 
     render() {
 
@@ -35,8 +34,8 @@ class SchoolsForm extends Component {
                     <Button onClick={this.newSchool}>Add School</Button>
                 </Form.Field>
             </Form>
-        );
-    };
-};
+        )
+    }
+}
 
 export default SchoolsForm;

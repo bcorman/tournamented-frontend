@@ -7,21 +7,21 @@ import LandingPage from './pages/LandingPage';
 import MainContainer from './containers/MainContainer';
 
 class App extends Component {
-    render() {
-        return (
-          <div className="App">
-              <Header/>
-              <div>
-                  <Route exact path="/" component={LandingPage}/>
-                  <PrivateRoute path="/setup" component={MainContainer}/>
-              </div>
-          </div>
-        );
-    };
-};
+  render() {
+    return (
+      <div className="App">
+        <Header/>
+        <div>
+          <Route exact path="/" component={LandingPage}/>
+          <PrivateRoute path="/setup" component={MainContainer}/>
+        </div>
+      </div>
+    );
+  }
+}
 
 const mapStateToProps = (state) => {
-    return {authenticated: state.auth.authenticated};
+  return {authenticated: state.auth.authenticated};
 };
 
 export default withRouter(connect(mapStateToProps)(App));

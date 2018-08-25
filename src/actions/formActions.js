@@ -5,8 +5,10 @@ import axios from 'axios';
 export function addSchool (newSchool) {
   return {
     type: ADD_SCHOOL,
-    newSchool
-  };
+    school: {
+      name: newSchool
+    }
+  }
 }
 
 export function initTournament (tourName, tourDate, tourLocation, tourLength, user) {
@@ -17,6 +19,6 @@ export function initTournament (tourName, tourDate, tourLocation, tourLength, us
       })
       .catch(function(error) {
         throw(error);
-      });
-  };
+      })
+  }
 }
