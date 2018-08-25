@@ -23,7 +23,7 @@ export function signUpUser(email, password, passwordConfirmation ) {
         dispatch(authError(response.data.error));
       });
   };
-};
+}
 
 export function signInUser(email, password) {
   return function (dispatch) {
@@ -46,11 +46,11 @@ export function signInUser(email, password) {
         dispatch(authError('bad login info'));
       });
   };
-};
+}
 
 export function signOutUser() {
   localStorage.removeItem('token', 'user');
   return {
     type: UNAUTH_USER
   };
-};
+}

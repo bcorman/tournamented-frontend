@@ -1,22 +1,23 @@
 import React, { Component } from 'react';
 import SchoolsForm from '../components/forms/SchoolsForm';
+import { connect } from 'react-redux';
+import { addSchool } from '../actions/formActions';
+import axios from 'axios';
+
 
 class SchoolsPage extends Component {
-    constructor(props) {
-        super(props);
-        this.state = { schools: [] };
-
-        this.addSchool = this.addSchool.bind(this);
-    };
 
     addSchool = (school) => {
-        this.state.schools.push(school);
+        console.log('addSchool hit')
+        this.props.addSchool(school);
+
+
     };
 
     render() {
 
-        let schools = this.state.schools.map((school, index) => {
-            return <span key={index}><h3>{school}</h3></span>;
+        let schools = this.props.schools.map((school, index) => {
+                    return <span key={index}><h3>{school}</h3></span>;
         });
 
         return (
@@ -26,8 +27,20 @@ class SchoolsPage extends Component {
                 {schools}
                 <SchoolsForm addSchool={this.addSchool}/>
             </div>
-        );
-    };
+        )
+    }
 };
 
-export default SchoolsPage;
+const mapStateToProps = state => {
+    return { schools: state.formData.schools };
+};
+
+const mapDispatchToProps = dispatch => {
+    return {
+        addSchool: (school) => {
+            dispatch(addSchool(school));
+        }
+    }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(SchoolsPage);
