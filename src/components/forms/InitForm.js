@@ -1,10 +1,14 @@
 import React, {Component} from 'react';
-import axios from 'axios';
 import { Form, Button, Dropdown, Menu } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 
 class InitForm extends Component {
-    state = {};
+    state = {
+      tourName: '',
+      tourDate: '',
+      tourLocation: '',
+      tourLength: 0
+    };
 
     handleChange = (e) => {
         this.setState({
@@ -13,7 +17,7 @@ class InitForm extends Component {
     };
 
     handleSubmit = (e) => {
-        console.log(this.state);
+      this.props.init(this.state.tourName, this.state.tourDate, this.state.tourLocation, this.state.tourLength);
     };
 
     render() {
@@ -44,16 +48,16 @@ class InitForm extends Component {
             <Form>
                 <Form.Field>
                     <label>Tournament Name</label>
-                    <input name='tournamentName' onChange={this.handleChange}/>
+                    <input name='tourName' onChange={this.handleChange}/>
                 </Form.Field>
                 <Form.Field>
                     <label>Tournament Date</label>
-                    <input type='date' name='tournamentDate' onChange={this.handleChange}/>
+                    <input type='date' name='tourDate' onChange={this.handleChange}/>
                 </Form.Field>
-                <Form.Select label='Rounds' options={rounds} />
+                <Form.Select label='tourLength' options={rounds} />
                 <Form.Field>
                     <label>Tournament Location</label>
-                    <input name='tournamentLocation' onChange={this.handleChange}/>
+                    <input name='tourLocation' onChange={this.handleChange}/>
                 </Form.Field>
                 <Button as={Link} to='/setup/schools' type='submit' onClick={this.handleSubmit}>Submit</Button>
             </Form>

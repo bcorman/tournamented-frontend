@@ -2,14 +2,13 @@ import React, { Component } from 'react';
 import SchoolsForm from '../components/forms/SchoolsForm';
 import { connect } from 'react-redux';
 import { addSchool } from '../actions/formActions';
-import axios from 'axios';
-
 
 class SchoolsPage extends Component {
 
     addSchool = (school) => {
         console.log('addSchool hit')
         this.props.addSchool(school);
+
 
 
     };
