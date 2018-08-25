@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {Route, Redirect, withRouter} from 'react-router-dom';
+import {Route, withRouter} from 'react-router-dom';
 import {PrivateRoute} from './components/PrivateRoute';
 import Header from './components/header/Header';
 import LandingPage from './pages/LandingPage';

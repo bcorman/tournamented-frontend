@@ -1,4 +1,4 @@
-import { ADD_SCHOOL } from './types';
+import { ADD_SCHOOL, INIT_TOUR } from './types';
 import { ROOT_URL } from '../config';
 import axios from 'axios';
 
@@ -13,7 +13,10 @@ export function initTournament (tourName, tourDate, tourLocation, tourLength, us
   return function (dispatch) {
     axios.post(`${ROOT_URL}/setup/init`, {tourName, tourDate, tourLocation, tourLength, user})
       .then(function (response) {
-        console.log(response);
+        dispatch({type: INIT_TOUR, payload: response.data});
+      })
+      .catch(function(error) {
+        throw(error);
       });
-  }
+  };
 }
