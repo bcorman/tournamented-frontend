@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { Form, Button } from 'semantic-ui-react';
+import { Form, Button, Select } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 
 class InitForm extends Component {
@@ -13,7 +13,10 @@ class InitForm extends Component {
     handleChange = (e) => {
         this.setState({
             [e.target.name]: e.target.value
-        });
+        })
+    };
+    roundSelect = (e, { value }) => {
+      this.setState({tourLength: value })
     };
 
     handleSubmit = (e) => {
@@ -44,6 +47,7 @@ class InitForm extends Component {
                 value: 5
             }
         ];
+
         return (
             <Form>
                 <Form.Field>
@@ -54,7 +58,13 @@ class InitForm extends Component {
                     <label>Tournament Date</label>
                     <input type='date' name='tourDate' onChange={this.handleChange}/>
                 </Form.Field>
-                <Form.Select label='tourLength' options={rounds} />
+                <Form.Field
+                   control={Select}
+                   name='tourLength'
+                   label='Number of Rounds'
+                   options={rounds}
+                   onChange={this.roundSelect}>
+                </Form.Field>
                 <Form.Field>
                     <label>Tournament Location</label>
                     <input name='tourLocation' onChange={this.handleChange}/>

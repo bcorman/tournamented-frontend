@@ -31,7 +31,7 @@ class SchoolsPage extends Component {
 };
 
 const mapStateToProps = state => {
-    return { schools: state.formData.schools };
+    return { schools: state.data.schools };
 };
 
 const mapDispatchToProps = dispatch => {

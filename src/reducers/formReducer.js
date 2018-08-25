@@ -6,7 +6,7 @@ const formReducer = (state = defaultData, action) => {
   case INIT_TOUR:
     return {
       ...state,
-      tourConfig: action.payload
+      tourData: action.payload
     };
   case ADD_SCHOOL:
     return {
