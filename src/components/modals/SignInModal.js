@@ -1,9 +1,8 @@
-import React, { Component } from 'react'
-import { Button, Modal } from 'semantic-ui-react'
-import SignInForm from '../forms/SignInForm'
+import React, { Component } from 'react';
+import { Modal, Button } from 'semantic-ui-react';
+import SignInForm from '../forms/SignInForm';
 
 export default class SignInModal extends Component {
-
   render() {
     return (
       <Modal trigger={<Button name='signInShow'>Sign In</Button>}>
@@ -12,6 +11,6 @@ export default class SignInModal extends Component {
           <SignInForm />
         </Modal.Content>
       </Modal>
-    )
+    );
   }
 }
