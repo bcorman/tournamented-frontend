@@ -7,38 +7,45 @@ import { addSchool } from '../actions/formActions';
 
 class SchoolsPage extends Component {
 
-    addSchool = (school) => {
-        this.props.addSchool(school);
-    }
 
-    render() {
+  addSchool = (school) => {
+    let tournamentID = this.props.tourData._id;
+    console.log(tournamentID)
+    this.props.addSchool(school, tournamentID);
+  }
 
-        let schools = this.props.schools.map((school, index) => {
-                    return <Button as={Link} to={`/setup/schools/${school.name}`} key={index}>{school.name}</Button>;
-        })
+  render() {
+    console.log(this.props)
 
-        return (
-            <div>
-                <h3>Schools</h3>
-                <p>Add or view participating schools below.</p>
-                <p>Click on a school to add participants and edit details.</p>
-                {schools}
-                <SchoolsForm addSchool={this.addSchool}/>
-            </div>
-        )
-    }
+    let schools = this.props.schools.map((school, index) => {
+      return <Button as={Link} to={`/setup/schools/${school.name}`} key={index}>{school.name}</Button>;
+    })
+    return (
+      <div>
+        <h3>Schools</h3>
+          <p>Add or view participating schools below.</p>
+        <p>Click on a school to add participants and edit details.</p>
+          {schools}
+          <SchoolsForm addSchool={this.addSchool}/>
+      </div>
+    )
+  }
 }
 
 const mapStateToProps = state => {
-    return { schools: state.data.schools };
+  console.log(state);
+  return {
+    schools: state.data.schools,
+    tourData: state.data.tourData
+  }
 }
 
 const mapDispatchToProps = dispatch => {
-    return {
-        addSchool: (school) => {
-            dispatch(addSchool(school));
-        }
+  return {
+    addSchool: (school, tournamentID) => {
+      dispatch(addSchool(school, tournamentID));
     }
+  }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(SchoolsPage);
