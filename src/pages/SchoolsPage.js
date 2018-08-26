@@ -3,7 +3,7 @@ import SchoolsForm from '../components/forms/SchoolsForm';
 import { Button } from 'semantic-ui-react'
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom'
-import { addSchool } from '../actions/formActions';
+import { addSchool, loadSchoolsByTournament } from '../actions/formActions';
 
 class SchoolsPage extends Component {
 
@@ -14,12 +14,17 @@ class SchoolsPage extends Component {
     this.props.addSchool(school, tournamentID);
   }
 
+  componentWillMount = () => {
+    let tournamentID = this.props.tourData._id;
+    this.props.loadSchoolsByTournament(tournamentID);
+  }
+
   render() {
-    console.log(this.props)
 
     let schools = this.props.schools.map((school, index) => {
       return <Button as={Link} to={`/setup/schools/${school.name}`} key={index}>{school.name}</Button>;
     })
+
     return (
       <div>
         <h3>Schools</h3>
@@ -44,6 +49,9 @@ const mapDispatchToProps = dispatch => {
   return {
     addSchool: (school, tournamentID) => {
       dispatch(addSchool(school, tournamentID));
+    },
+    loadSchoolsByTournament: (tournamentID) => {
+      dispatch(loadSchoolsByTournament(tournamentID));
     }
   }
 }

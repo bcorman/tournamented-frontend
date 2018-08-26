@@ -1,4 +1,4 @@
-import { ADD_SCHOOL, INIT_TOUR, REMOVE_SCHOOL } from '../actions/types';
+import { ADD_SCHOOL, INIT_TOUR, REMOVE_SCHOOL, LOAD_SCHOOLS_BY_TOUR } from '../actions/types';
 const defaultData = {
   schools: [
     {
@@ -16,6 +16,12 @@ const formReducer = (state = defaultData, action) => {
       ...state,
       tourData: action.payload,
       tourLoaded: true
+    }
+  case LOAD_SCHOOLS_BY_TOUR:
+    console.log(action)
+    return {
+      ...state,
+      schools: action.schools
     }
   case ADD_SCHOOL:
     return {
