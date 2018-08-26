@@ -40,4 +40,5 @@ const mapStateToProps = (state) => {
   return {authenticated: state.auth.authenticated, tourLoaded: state.data.tourLoaded};
 }
 
+
 export default connect(mapStateToProps)(LandingPage);

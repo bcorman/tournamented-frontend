@@ -22,7 +22,7 @@ class SchoolsPage extends Component {
   render() {
 
     let schools = this.props.schools.map((school, index) => {
-      return <Button as={Link} to={`/setup/schools/${school.name}`} key={index}>{school.name}</Button>;
+      return <Button as={Link} to={`/setup/schools/${school._id}`} key={index}>{school.name}</Button>;
     })
 
     return (

@@ -8,7 +8,6 @@ import './MainContainer.css';
 
 class MainContainer extends Component {
 
-
   render() {
 
     return (
