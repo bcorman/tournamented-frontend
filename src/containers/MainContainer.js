@@ -7,7 +7,10 @@ import SchoolDetailContainer from '../containers/SchoolDetailContainer';
 import './MainContainer.css';
 
 class MainContainer extends Component {
+
+
   render() {
+
     return (
       <div className="main-content">
         <Switch>
@@ -19,7 +22,6 @@ class MainContainer extends Component {
     );
   }
 }
-
 
 
 export default MainContainer;

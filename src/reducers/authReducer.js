@@ -9,7 +9,13 @@ const authReducer = (state = {}, action) => {
       user: action.payload
     };
   case UNAUTH_USER:
-    return {...state, authenticated: false, user: null };
+    return {
+      ...state,
+      authenticated: false,
+      user: null,
+      tourData: null,
+      tourLoaded: false
+    }
   case AUTH_ERROR:
     return {...state, error: action.payload};
   case FETCH_MESSAGE:

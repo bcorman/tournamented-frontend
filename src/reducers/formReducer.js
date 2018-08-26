@@ -14,7 +14,8 @@ const formReducer = (state = defaultData, action) => {
   case INIT_TOUR:
     return {
       ...state,
-      tourData: action.payload
+      tourData: action.payload,
+      tourLoaded: true
     }
   case ADD_SCHOOL:
     return {

@@ -13,9 +13,14 @@ class LandingPage extends Component {
         } else {
             return this.setState({message: 'Please sign in to continue'});
         }
-    };
+    }
 
     render() {
+      const button = (this.props.authenticated && this.props.tourLoaded)
+                     ? <Button as={Link} to='/setup/schools' onClick={this.beginTournament}>Start</Button>
+                     : <Button as={Link} to='/setup' onClick={this.beginTournament}>Start</Button>;
+
+
         return (
             <div className="landing-page">
                 <h3 className="welcome">Welcome to Debate Club</h3>
@@ -24,15 +29,15 @@ class LandingPage extends Component {
                 <p>Student information is limited to first name and last initial, and is kept in a secure database. Debate performance data, once stored, is accessible only by coaches and authorized debate staff.</p>
                 <p>For more information about how Debate Club works, click on the link in the header to view the documentation.</p>
                 <p>Please sign in to view past tournaments, or press the button below to begin a new tournament.</p>
-                <Button as={Link} to='/setup' onClick={this.beginTournament}>Start</Button>
+                {button}
                 <h4>{this.state.message}</h4>
             </div>
-        );
-    };
-};
+        )
+    }
+}
 
 const mapStateToProps = (state) => {
-    return {authenticated: state.auth.authenticated};
-};
+    return {authenticated: state.auth.authenticated, tourLoaded: state.data.tourLoaded};
+}
 
 export default connect(mapStateToProps)(LandingPage);
