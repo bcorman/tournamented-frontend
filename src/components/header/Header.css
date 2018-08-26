@@ -1,3 +1,4 @@
 #site-title {
-  margin: auto;
+  margin: auto 2em;
+  text-decoration: none;
 }
