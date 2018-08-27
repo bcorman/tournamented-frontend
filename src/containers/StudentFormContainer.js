@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import StudentForm from './StudentForm';
+import StudentForm from '../components/forms/StudentForm';
 
 class StudentFormContainer extends Component {
   render() {

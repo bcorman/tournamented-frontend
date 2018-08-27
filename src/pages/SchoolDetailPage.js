@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Tab } from 'semantic-ui-react';
-import StudentFormContainer from '../components/forms/StudentFormContainer';
-import TeamFormContainer from '../components/forms/TeamFormContainer';
-import JudgeFormContainer from '../components/forms/JudgeFormContainer';
-import CoachFormContainer from '../components/forms/CoachFormContainer';
+import StudentFormContainer from '../containers/StudentFormContainer';
+import TeamFormContainer from '../containers/TeamFormContainer';
+import JudgeFormContainer from '../containers/JudgeFormContainer';
+import CoachFormContainer from '../containers/CoachFormContainer';
 
 
 

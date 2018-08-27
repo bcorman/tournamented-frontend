@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import CoachForm from './CoachForm';
+import CoachForm from '../components/forms/CoachForm';
 import { Grid } from 'semantic-ui-react';
 
 class CoachFormContainer extends Component {

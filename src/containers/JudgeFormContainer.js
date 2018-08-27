@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import JudgeForm from './JudgeForm';
+import JudgeForm from '../components/forms/JudgeForm';
 
 class JudgeFormContainer extends Component {
   render() {
