@@ -1,7 +1,10 @@
-export const AUTH_USER = 'auth_user';
-export const UNAUTH_USER = 'unauth_user';
-export const AUTH_ERROR = 'auth_error';
-export const FETCH_MESSAGE = 'fetch_message';
-export const ADD_SCHOOL = 'add_school';
-export const INIT_TOUR = 'init_tour';
-export const REMOVE_SCHOOL = 'remove_school'
+module.exports = {
+  AUTH_USER: 'auth_user',
+  UNAUTH_USER: 'unauth_user',
+  AUTH_ERROR: 'auth_error',
+  FETCH_MESSAGE: 'fetch_message',
+  ADD_SCHOOL: 'add_school',
+  INIT_TOUR: 'init_tour',
+  REMOVE_SCHOOL: 'remove_school',
+  LOAD_SCHOOLS_BY_TOUR: 'load_schools_by_tour'
+}

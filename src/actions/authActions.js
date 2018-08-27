@@ -49,7 +49,7 @@ export function signInUser(email, password) {
 }
 
 export function signOutUser() {
-  localStorage.removeItem('token', 'user');
+  localStorage.removeItem('token', 'user', 'tourData');
   return {
     type: UNAUTH_USER
   };
