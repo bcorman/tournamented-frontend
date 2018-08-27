@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Form } from 'semantic-ui-react';
+import { Tab } from 'semantic-ui-react';
 import SchoolDetailPage from '../pages/SchoolDetailPage';
 
 //this component handles API get requests
