@@ -22,7 +22,7 @@ class StudentList extends Component {
 }
 
 const mapStateToProps = state => {
-  console.log(state.data.schools);
+  return { students: state.data.currentSchool.students}
 }
 
 export default connect(mapStateToProps)(StudentList);
