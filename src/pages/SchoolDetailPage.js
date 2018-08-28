@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Tab } from 'semantic-ui-react';
+import { connect } from 'react-redux'
 import StudentFormContainer from '../containers/StudentFormContainer';
 import TeamFormContainer from '../containers/TeamFormContainer';
 import JudgeFormContainer from '../containers/JudgeFormContainer';
@@ -20,14 +21,18 @@ class SchoolDetailPage extends Component {
   render() {
     return (
       <div>
-        <h3 id="school-name">{this.props.school.name} Detail Page</h3>
+        <h3 id="school-name">{this.props.currentSchool.name} Detail Page</h3>
         <Tab panes={panes} />
       </div>
     )
   }
 }
 
+const mapStateToProps = state => {
+  return { currentSchool: state.data.currentSchool}
+}
 
-export default SchoolDetailPage;
+
+export default connect(mapStateToProps)(SchoolDetailPage);
 
 

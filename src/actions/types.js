@@ -6,5 +6,6 @@ module.exports = {
   ADD_SCHOOL: 'add_school',
   INIT_TOUR: 'init_tour',
   REMOVE_SCHOOL: 'remove_school',
-  LOAD_SCHOOLS_BY_TOUR: 'load_schools_by_tour'
+  LOAD_SCHOOLS_BY_TOUR: 'load_schools_by_tour',
+  SET_CURRENT_SCHOOL: 'set_current_school'
 }

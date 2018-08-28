@@ -1,30 +1,40 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Tab } from 'semantic-ui-react';
 import SchoolDetailPage from '../pages/SchoolDetailPage';
+import { setCurrentSchool } from '../actions/loaderActions';
 
 //this component handles API get requests
 
 class SchoolDetailContainer extends Component {
   state = {};
 
-  componentWillMount = () => {
+  setSchool = () => {
     const allSchools = JSON.parse(localStorage.getItem('schools'));
     let url = this.props.match.params.school;
     let currentSchool = allSchools.filter( school => school._id === url)[0];
-    this.setState({school: currentSchool});
+    setCurrentSchool(currentSchool);
+  }
+
+  componentWillMount = () => {
+    console.log('component will mount')
+    this.setSchool()
   }
   render() {
     return (
       <div>
-        <SchoolDetailPage school={this.state.school} />
+        <SchoolDetailPage />
       </div>
     )
   }
 }
 
-const mapStateToProps = (state) => {
-  return state;
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    setCurrentSchool: (school) => {
+      dispatch(setCurrentSchool(school));
+    }
+  }
 }
 
-export default connect(mapStateToProps)(SchoolDetailContainer);
+export default connect(mapDispatchToProps)(SchoolDetailContainer);
