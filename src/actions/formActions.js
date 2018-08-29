@@ -1,4 +1,4 @@
-import { ADD_SCHOOL, INIT_TOUR, LOAD_SCHOOLS_BY_TOUR } from './types';
+import { ADD_SCHOOL, INIT_TOUR, LOAD_SCHOOLS_BY_TOUR, ADD_STUDENT } from './types';
 import { ROOT_URL } from '../config';
 import axios from 'axios';
 
@@ -11,6 +11,20 @@ export function addSchool (newSchool, tournamentID) {
     axios.post(`${ROOT_URL}/setup/school/create`, {school, id})
       .then(function (response) {
         dispatch({ type: ADD_SCHOOL, school: response.data });
+      })
+      .catch(function(error) {
+        throw(error);
+      })
+  }
+}
+
+// add student
+
+export function addStudent (student, schoolID) {
+  return function (dispatch) {
+    axios.post(`${ROOT_URL}/setup/student/add`, {type: 'student', student, schoolID})
+      .then(function (response) {
+        dispatch({ type: ADD_STUDENT, student: response.data });
       })
       .catch(function(error) {
         throw(error);

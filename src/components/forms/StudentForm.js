@@ -16,7 +16,7 @@ class StudentForm extends Component {
   addStudent = (e) => {
     e.preventDefault();
     if (this.state.student.length > 2) {
-      let schoolID = this.props.match.params.school
+      let schoolID = this.props.currentSchool._id
       let student = this.state.student
       this.props.addStudent(student, schoolID)
     }
@@ -37,7 +37,9 @@ class StudentForm extends Component {
   }
 }
 
-const mapStateToProps = state => state;
+const mapStateToProps = state => {
+  return { currentSchool: state.data.currentSchool}
+}
 
 const mapDispatchToProps = dispatch => {
   return {
