@@ -1,16 +1,19 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import SchoolDetailPage from '../pages/SchoolDetailPage';
+import SchoolNavBar from '../components/navbars/SchoolNavBar';
 import { setCurrentSchool } from '../actions/loaderActions';
+import { Tab } from 'semantic-ui-react';
 
-//this component handles API get requests
+//this component switches between schools
+
 
 class SchoolDetailContainer extends Component {
   state = {};
-
+  
   setSchool = () => {
     //retrieve all schools from localstorage
-    let schools = JSON.parse(localStorage.getItem('schools'))
+    const schools = JSON.parse(localStorage.getItem('schools'))
     let url = this.props.match.params.school;
 
     //filter through to find school that matches url
