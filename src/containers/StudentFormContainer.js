@@ -7,7 +7,6 @@ class StudentFormContainer extends Component {
   render() {
     return (
       <div>
-        Student Form Container
         <Grid columns={2}>
           <Grid.Column width={8}>
             <StudentForm />

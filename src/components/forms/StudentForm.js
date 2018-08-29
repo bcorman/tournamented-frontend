@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Form, Button } from 'semantic-ui-react';
+import './StudentForm.css'
 
 class StudentForm extends Component {
   state = {
@@ -22,11 +23,15 @@ class StudentForm extends Component {
   render() {
     return (
       <Form>
-        <Form.Field>
-          <label>Add Student</label>
+        <article className='student-form-text'>
+          <h4>Add Student</h4>
+          <p>Please input student first name and last initial. Students already in database will appear in the list to the right of this form</p>
+        </article>
+        <Form.Field inline>
           <input name='student' onChange={this.handleChange} />
+          <Button onClick={this.addStudent}><label>Add Student</label></Button>
+          
         </Form.Field>
-        <Button onClick={this.addStudent}>Submit</Button>
       </Form>
     )
   }

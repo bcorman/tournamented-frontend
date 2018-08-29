@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import SchoolDetailPage from '../pages/SchoolDetailPage';
-import SchoolNavBar from '../components/navbars/SchoolNavBar';
 import { setCurrentSchool } from '../actions/loaderActions';
-import { Tab } from 'semantic-ui-react';
 
 //this component switches between schools
 

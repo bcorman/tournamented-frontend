@@ -25,8 +25,6 @@ const dataReducer = (state = defaultData, action) => {
       schools: action.schools
     }
   case SET_CURRENT_SCHOOL:
-    console.log('set current school reducer')
-    console.log(action)
     return {
       ...state,
       currentSchool: action.school
