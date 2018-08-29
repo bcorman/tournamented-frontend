@@ -1,24 +1,25 @@
 import React, { Component } from 'react';
 import { Form, Button } from 'semantic-ui-react';
-import './StudentForm.css'
+import { connect } from 'react-redux'
+import  { addStudent }  from '../../actions/formActions';
+import './StudentForm.css';
 
 class StudentForm extends Component {
   state = {
-    student: '',
-    students: [],
+    student: ''
   };
 
   handleChange = (e) => {
-    this.setState({ [e.target.name]: e.target.value })
+    this.setState({ student: e.target.value })
   };
 
   addStudent = (e) => {
     e.preventDefault();
-    if (this.state.students.length < 3) {
-      this.state.students.push(this.state.student);
-      this.setState({ student: '' })
+    if (this.state.student.length > 2) {
+      let schoolID = this.props.match.params.school
+      let student = this.state.student
+      this.props.addStudent(student, schoolID)
     }
-    console.log(this.state)
   }
   render() {
     return (
@@ -30,11 +31,20 @@ class StudentForm extends Component {
         <Form.Field inline>
           <input name='student' onChange={this.handleChange} />
           <Button onClick={this.addStudent}><label>Add Student</label></Button>
-          
         </Form.Field>
       </Form>
     )
   }
 }
 
-export default StudentForm;
+const mapStateToProps = state => state;
+
+const mapDispatchToProps = dispatch => {
+  return {
+    addStudent: (student, schoolID) => {
+      dispatch(addStudent(student, schoolID))
+    }
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(StudentForm);
