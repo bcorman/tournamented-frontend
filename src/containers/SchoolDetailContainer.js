@@ -9,14 +9,16 @@ class SchoolDetailContainer extends Component {
   state = {};
 
   setSchool = () => {
-    const allSchools = JSON.parse(localStorage.getItem('schools'));
+    //retrieve all schools from localstorage
+    let schools = JSON.parse(localStorage.getItem('schools'))
     let url = this.props.match.params.school;
-    let currentSchool = allSchools.filter( school => school._id === url)[0];
-    setCurrentSchool(currentSchool);
+
+    //filter through to find school that matches url
+    let currentSchool = schools.filter(school => school._id === url)[0]
+    this.props.setCurrentSchool(currentSchool);
   }
 
   componentWillMount = () => {
-    console.log('component will mount')
     this.setSchool()
   }
   render() {
@@ -28,8 +30,9 @@ class SchoolDetailContainer extends Component {
   }
 }
 
+const mapStateToProps = state => state;
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = dispatch => {
   return {
     setCurrentSchool: (school) => {
       dispatch(setCurrentSchool(school));
@@ -37,4 +40,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(mapDispatchToProps)(SchoolDetailContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(SchoolDetailContainer);
