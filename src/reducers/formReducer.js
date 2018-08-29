@@ -1,4 +1,4 @@
-import { ADD_SCHOOL, INIT_TOUR, REMOVE_SCHOOL, LOAD_SCHOOLS_BY_TOUR, SET_CURRENT_SCHOOL } from '../actions/types';
+import { ADD_SCHOOL, ADD_STUDENT, INIT_TOUR, REMOVE_SCHOOL, LOAD_SCHOOLS_BY_TOUR, SET_CURRENT_SCHOOL } from '../actions/types';
 
 const defaultData = {
   schools: [
@@ -33,6 +33,11 @@ const dataReducer = (state = defaultData, action) => {
     return {
       ...state,
       schools: [...state.schools, action.school]
+    }
+  case ADD_STUDENT:
+    return {
+      ...state,
+      currentSchool: action.school
     }
   case REMOVE_SCHOOL:
     return {

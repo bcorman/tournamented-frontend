@@ -1,0 +1,7 @@
+.student-list {
+  margin: 1em auto;
+}
+
+.student-list li {
+  list-style: none;
+}

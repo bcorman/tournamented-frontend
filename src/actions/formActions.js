@@ -24,7 +24,7 @@ export function addStudent (student, schoolID) {
   return function (dispatch) {
     axios.post(`${ROOT_URL}/setup/student/add`, {type: 'student', student, schoolID})
       .then(function (response) {
-        dispatch({ type: ADD_STUDENT, student: response.data });
+        dispatch({ type: ADD_STUDENT, school: response.data.school });
       })
       .catch(function(error) {
         throw(error);

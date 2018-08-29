@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import './StudentList.css'
 
 class StudentList extends Component {
 
@@ -8,13 +9,7 @@ class StudentList extends Component {
               ? this.props.students.map((student, index) => <li key={index}>{student.name}</li>)
               : null;
     return (
-      <ul>
-        <li>student</li>
-        <li>student</li>
-        <li>student</li>
-        <li>student</li>
-        <li>student</li>
-        <li>student</li>
+      <ul className='student-list'>
         {students}
       </ul>
     )
