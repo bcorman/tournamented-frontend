@@ -1,30 +1,44 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Form } from 'semantic-ui-react';
 import SchoolDetailPage from '../pages/SchoolDetailPage';
+import { setCurrentSchool } from '../actions/loaderActions';
 
-//this component handles API get requests
+//this component switches between schools
+
 
 class SchoolDetailContainer extends Component {
   state = {};
+  
+  setSchool = () => {
+    //retrieve all schools from localstorage
+    const schools = JSON.parse(localStorage.getItem('schools'))
+    let url = this.props.match.params.school;
+
+    //filter through to find school that matches url
+    let currentSchool = schools.filter(school => school._id === url)[0]
+    this.props.setCurrentSchool(currentSchool);
+  }
 
   componentWillMount = () => {
-    const allSchools = JSON.parse(localStorage.getItem('schools'));
-    let url = this.props.match.params.school;
-    let currentSchool = allSchools.filter( school => school._id === url)[0];
-    this.setState({school: currentSchool});
+    this.setSchool()
   }
   render() {
     return (
       <div>
-        <SchoolDetailPage school={this.state.school} />
+        <SchoolDetailPage />
       </div>
     )
   }
 }
 
-const mapStateToProps = (state) => {
-  return state;
+const mapStateToProps = state => state;
+
+const mapDispatchToProps = dispatch => {
+  return {
+    setCurrentSchool: (school) => {
+      dispatch(setCurrentSchool(school));
+    }
+  }
 }
 
-export default connect(mapStateToProps)(SchoolDetailContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(SchoolDetailContainer);

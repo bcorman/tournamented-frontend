@@ -1,4 +1,5 @@
-import { ADD_SCHOOL, INIT_TOUR, REMOVE_SCHOOL, LOAD_SCHOOLS_BY_TOUR } from '../actions/types';
+import { ADD_SCHOOL, ADD_STUDENT, INIT_TOUR, REMOVE_SCHOOL, LOAD_SCHOOLS_BY_TOUR, SET_CURRENT_SCHOOL } from '../actions/types';
+
 const defaultData = {
   schools: [
     {
@@ -6,10 +7,11 @@ const defaultData = {
     }, {
       name: 'NEST'
     }
-  ]
+  ],
+  currentSchool: { name: 'BISNY' }
 }
 
-const formReducer = (state = defaultData, action) => {
+const dataReducer = (state = defaultData, action) => {
   switch (action.type) {
   case INIT_TOUR:
     return {
@@ -18,15 +20,24 @@ const formReducer = (state = defaultData, action) => {
       tourLoaded: true
     }
   case LOAD_SCHOOLS_BY_TOUR:
-    console.log(action)
     return {
       ...state,
       schools: action.schools
+    }
+  case SET_CURRENT_SCHOOL:
+    return {
+      ...state,
+      currentSchool: action.school
     }
   case ADD_SCHOOL:
     return {
       ...state,
       schools: [...state.schools, action.school]
+    }
+  case ADD_STUDENT:
+    return {
+      ...state,
+      currentSchool: action.school
     }
   case REMOVE_SCHOOL:
     return {
@@ -38,4 +49,4 @@ const formReducer = (state = defaultData, action) => {
   }
 };
 
-export default formReducer;
+export default dataReducer;
